@@ -112,6 +112,83 @@ body, html {
   margin-bottom: 1rem;
 }
 
+.about {
+  background: #121212;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #00bcd4;
+}
+
+.about p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: auto;
+  line-height: 1.6;
+}
+
+.team {
+  background: #0e0e0e;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.team h2 {
+  color: #00bcd4;
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+}
+
+.team-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-items: center;
+}
+
+.member {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  text-align: center;
+  width: 100%;
+  max-width: 240px;
+}
+
+.member img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.member h3 {
+  color: #fff;
+  margin: 0.5rem 0;
+}
+
+.member p {
+  color: #aaa;
+  font-size: 0.95rem;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease-in-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 /* Footer */
 .footer {
   background: #000;
@@ -120,4 +197,61 @@ body, html {
   font-size: 0.9rem;
   z-index: 2;
   position: relative;
+}
+
+/* ========== Toggle Styles ========== */
+#theme-toggle {
+  display: none;
+}
+
+.toggle-label {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  width: 50px;
+  height: 26px;
+  background: #444;
+  border-radius: 50px;
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  transition: background 0.3s ease;
+}
+
+.toggle-label span {
+  display: block;
+  width: 22px;
+  height: 22px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+/* ========== Theme Variables ========== */
+:root {
+  --bg: #0d0d0d;
+  --text: #fff;
+  --accent: #00bcd4;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* ========== Light Theme Overrides ========== */
+#theme-toggle:checked ~ .hero,
+#theme-toggle:checked ~ section,
+#theme-toggle:checked ~ footer {
+  --bg: #f5f5f5;
+  --text: #111;
+  --accent: #007bff;
+}
+
+/* Toggle animation */
+#theme-toggle:checked + .toggle-label span {
+  transform: translateX(24px);
 }
